@@ -36,3 +36,11 @@ class DashboardView(TemplateView):
     def get(self, request, **kwargs):
         context = self.get_context_data()
         return render_to_response(self.template_name, context, RequestContext(request))
+
+class StudentView(TemplateView):
+    template_name = 'student-detail.html'
+
+    def get(self, request, **kwargs):
+        print kwargs
+        context = self.get_context_data()
+        return render_to_response(self.template_name, context, RequestContext(request))

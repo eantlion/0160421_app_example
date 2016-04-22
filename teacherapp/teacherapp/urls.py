@@ -16,19 +16,27 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-
-from django.views.generic.edit import CreateView
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import views as auth_views
 import views as app_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-    url(r'^login/', auth_views.login, {'template_name': 'login.html'}),
+    url(r'^login/', 
+        auth_views.login, 
+        {'template_name': 'login.html'}),
 
-    url(r'^register/submit/', app_views.register, name='register'),
+    url(r'^register/submit/', 
+        app_views.register, 
+        name='register'),
 
-    url(r'^accounts/profile/', app_views.DashboardView.as_view(), name='profile')
+    url(r'^accounts/profile/', 
+        app_views.DashboardView.as_view(), 
+        name='profile'),
+
+    url(r'^student/(?P<student_id>[0-9]{1,64})/$',
+        app_views.StudentView.as_view(),
+        name="student_details"),
+
 
 ]

@@ -1,0 +1,53 @@
+{% load staticfiles i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Teacher Class Manager System</title>
+     <!-- Compiled and minified CSS -->
+    <link href="{% static 'css/mui.css'%}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="mui-row">
+        <div class="mui-col-md-10 mui-col-md-offset-1 mui-col-sm-12 ">
+            <div class="contentContainer">
+                <form class="formContainer" action="/classroom/submit/" method="post">
+                {% csrf_token %}
+                <div class="mui-textfield">
+                    <input type="text" name="subject_title" id="subject_title" maxlength="30" >
+                    <label>Title</label>
+                    <p class='subject_title reg-error'></p>
+                </div>
+                <h4>Add students to class</h4>
+                <div class="scrollableList">
+	                {% for student in students %}
+					<div class="mui-checkbox">
+						<label>
+							<input name="students" type="checkbox" value="{{student.id}}">
+							{{student.first_name}} {{student.last_name}}
+						</label>
+					</div>
+					{% endfor %}
+				</div>
+                <div class="registerSubmitButtonContainer">
+                    <button class="primaryButton registerSubmitButton" type="submit">Submit</button>
+                </div>
+            </form>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/mui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/setup_csrf.js' %}"></script>
+
+
+
+</body>
+</html>

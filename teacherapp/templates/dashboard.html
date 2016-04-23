@@ -16,16 +16,16 @@
     <div class="mui-row">
         <div class="mui-col-md-10 mui-col-md-offset-1 mui-col-sm-12 ">
             <div class="contentContainer">
-                <h3> Welcome to your dashboard, Professor!</h3>
+                <h3> Welcome to your dashboard, {{user_obj.username}}!</h3>
                 <br>
                 <br>
-                <a> View your classrooms </a>
+                <a href="/myclassrooms/"> View your classrooms </a>
                 <br>
-                <a> View all your students </a>
-                <br>
-                <a> Enroll a student in a class </a>
+                <a href="/mystudents/"> View all your students </a>
                 <br> 
-                <a> Create a new student </a>
+                <a> Create a new student record </a>
+                <br>
+                <a> Create a new classroom </a>
                 <br>
                 
             </div>
@@ -34,9 +34,7 @@
 
     <script src="{% static 'js/mui.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.mask.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/setup_csrf.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 
 
 </body>

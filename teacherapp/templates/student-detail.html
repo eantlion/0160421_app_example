@@ -16,9 +16,38 @@
     <div class="mui-row">
         <div class="mui-col-md-10 mui-col-md-offset-1 mui-col-sm-12 ">
             <div class="contentContainer">
-                <h3> Welcome to student page, Professor!</h3>
-
-                
+                <h3> Student Details Page</h3>
+                <table align ="center" style="width:80%">
+                    <tr style="border-bottom: .1rem solid darkgrey">
+                        <td ><strong>First Name</strong></td>
+                        <td>{{student.first_name}}</td>
+                    </tr>
+                    <tr style="border-bottom: .1rem solid darkgrey">
+                        <td><strong>Last Name</strong></td>
+                        <td>{{student.last_name}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email Address</strong></td>
+                        <td>{{student.email}}</td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <h2>Currently enrolled classes</h2>
+                <div>
+                    <table align ="center" style="width:80%">
+                        <tr style="border-bottom: .2rem solid black">
+                            <td><strong>Class</strong></td>
+                            <td><strong>Teacher</strong></td>
+                        </tr>
+                        {% for class in student.classes.all %}
+                        <tr>
+                            <td><a href='/class/{{class.id}}'>{{class.subject_title}}</a></td>
+                            <td>{{class.teacher.username}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -27,8 +56,6 @@
     <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.mask.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/setup_csrf.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-
 
 </body>
 </html>

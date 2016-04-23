@@ -38,5 +38,24 @@ urlpatterns = [
         app_views.StudentView.as_view(),
         name="student_details"),
 
+    url(r'^class/(?P<class_id>[0-9]{1,64})/$',
+        app_views.ClassroomView.as_view(),
+        name="class_details"),
+
+    url(r'^mystudents/$',
+        app_views.MyStudentsView.as_view(),
+        name="my_students"),
+
+    url(r'^myclassrooms/$',
+        app_views.MyClassroomsView.as_view(),
+        name="my_classrooms"),
+
+    url(r'^create-classroom/', 
+        app_views.CreateClassroomView.as_view(), 
+        name="create_classroom"),
+
+    url(r'^classroom/submit/', 
+        app_views.submit_stuff, 
+        name='classroom_submit'),
 
 ]

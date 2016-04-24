@@ -20,7 +20,7 @@
                 <h4>Taught by {{current_teacher}}</h4>
                 <br>
                 {% if can_edit %}
-                    <a> You can add/remove students here </a>
+                    <a href='/edit-classroom/{{class.id}}/'> You can add/remove students here </a>
                     <br>
                 {% endif %}
                 <br>

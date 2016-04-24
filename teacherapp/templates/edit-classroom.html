@@ -16,20 +16,31 @@
     <div class="mui-row">
         <div class="mui-col-md-10 mui-col-md-offset-1 mui-col-sm-12 ">
             <div class="contentContainer">
-                <form class="formContainer" action="/create-classroom/" method="post">
+                <form class="formContainer" action="/edit-classroom/{{class.id}}/" method="post">
                 {% csrf_token %}
-                <div class="mui-textfield">
-                    <input type="text" name="subject_title" id="subject_title" maxlength="30" >
-                    <label>Title</label>
-                    <p class='subject_title reg-error'>{% if subject_error %}{{subject_error}} {% endif %}</p>
-                </div>
-                <h4>Add students to class</h4>
+                <h2>{{class.subject_title}}</h2>
+                <br>
+                <h3>Currently enrolled students</h3>
+                <h4>Select any students you want to remove</h4>
                 <div class="scrollableList">
-	                {% for student in students %}
+                    {% for current_student in current_students %}
+                    <div class="mui-checkbox">
+                        <label>
+                            <input name="remove_students" type="checkbox" value="{{current_student.id}}">
+                            {{current_student.first_name}} {{current_student.last_name}}
+                        </label>
+                    </div>
+                    {% endfor %}
+                </div>
+                <br>
+                <br>
+                <h4>Select any students to add</h4>
+                <div class="scrollableList">
+	                {% for new_student in new_students %}
 					<div class="mui-checkbox">
 						<label>
-							<input name="students" type="checkbox" value="{{student.id}}">
-							{{student.first_name}} {{student.last_name}}
+							<input name="add_students" type="checkbox" value="{{new_student.id}}">
+							{{new_student.first_name}} {{new_student.last_name}}
 						</label>
 					</div>
 					{% endfor %}

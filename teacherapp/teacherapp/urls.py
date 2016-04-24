@@ -34,6 +34,10 @@ urlpatterns = [
         app_views.DashboardView.as_view(), 
         name='profile'),
 
+    url(r'^$', 
+        app_views.DashboardView.as_view(), 
+        name='profile'),
+
     url(r'^student/(?P<student_id>[0-9]{1,64})/$',
         app_views.StudentView.as_view(),
         name="student_details"),
@@ -54,8 +58,8 @@ urlpatterns = [
         app_views.CreateClassroomView.as_view(), 
         name="create_classroom"),
 
-    url(r'^classroom/submit/', 
-        app_views.submit_stuff, 
-        name='classroom_submit'),
+    url(r'^edit-classroom/(?P<class_id>[0-9]{1,64})/$', 
+        app_views.EditClassroomView.as_view(), 
+        name="edit_classroom"),
 
 ]

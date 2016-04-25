@@ -7,6 +7,7 @@ INSTALLATION
 Requirements: 
 
 Install pip: https://pip.pypa.io/en/stable/installing/
+
 Install virtualenv: https://virtualenv.pypa.io/en/latest/installation.html
 
 

@@ -4,6 +4,8 @@ teacherapp
 INSTALLATION
 ------------
 
+These instructions assume installation under linux system running ubuntu 14.04
+
 Requirements: 
 
 Install pip: https://pip.pypa.io/en/stable/installing/

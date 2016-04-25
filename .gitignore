@@ -1,0 +1,21 @@
+#migrations
+*/migrations
+#bytecode
+*.pyc
+#hidden files
+\.*
+#db
+db.sqlite3
+#media
+/media
+
+*.DS_Store
+
+# cache
+__pycache__
+
+# Virtualenv
+myenv
+
+# Static Files
+staticfiles

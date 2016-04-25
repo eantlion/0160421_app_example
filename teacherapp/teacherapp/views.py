@@ -109,11 +109,38 @@ class CreateClassroomView(LoginRequiredMixin, TemplateView):
             return redirect('/class/'+str(new_class.id)+'/')
 
         else:
-            context['subject_error'] = class_form['subject_title'].errors[0]
+            context['errors'] = class_form.errors
 
         context['students'] = Student.objects.all().order_by('last_name')
         return render_to_response(self.template_name, context, RequestContext(request))
-        
+
+
+class CreateStudentView(LoginRequiredMixin, TemplateView):
+    template_name = 'create-student.html'
+
+    def get(self, request, **kwargs):
+        context = self.get_context_data()
+        return render_to_response(self.template_name, context, RequestContext(request))
+
+    def post(self, request, **kwargs):
+        context = self.get_context_data()
+        student_form = StudentForm(request.POST)
+
+        if student_form.is_valid():
+            new_student = Student.objects.create(
+                first_name = student_form.cleaned_data['first_name'],
+                last_name = student_form.cleaned_data['last_name'],
+                email = student_form.cleaned_data['email'])
+            new_student.save()
+
+            return redirect('/student/'+str(new_student.id)+'/')
+
+        else:
+            context['errors'] = student_form.errors
+
+        return render_to_response(self.template_name, context, RequestContext(request))
+
+
 class EditClassroomView(LoginRequiredMixin, TemplateView):
     template_name = 'edit-classroom.html'
 

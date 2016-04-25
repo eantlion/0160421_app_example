@@ -13,25 +13,26 @@
     <![endif]-->
 </head>
 <body>
+    {% include "partials/header.html" %}
     <div class="mui-row">
         <div class="mui-col-md-10 mui-col-md-offset-1 mui-col-sm-12 ">
             <div class="contentContainer">
-                <form class="formContainer registerForm" action="/create/student/" method="post">
+                <form class="formContainer" action="/create-student/" method="post">
                 {% csrf_token %}
                 <div class="mui-textfield">
                     <input type="text" name="first_name" id="first_name" maxlength="30">
                     <label>First Name</label>
-                    <p class='first_name reg-error'></p>
+                    <p class='first_name reg-error'>{% if errors %}{{errors.first_name}} {% endif %}</p>
                 </div>
                 <div class="mui-textfield">
                     <input type="text" name="last_name" id="last_name" maxlength="30">
                     <label>Last Name</label>
-                    <p class='last_name reg-error'></p>
+                    <p class='last_name reg-error'>{% if errors %}{{errors.last_name}} {% endif %}</p>
                 </div>
                 <div class="mui-textfield">
                     <input type="text" id="email" name="email" maxlength="254">
                     <label>Email</label>
-                    <p class='email reg-error'></p>
+                    <p class='email reg-error'>{% if errors %}{{errors.email}} {% endif %}</p>
                 </div>
 
                 <div class="registerSubmitButtonContainer">

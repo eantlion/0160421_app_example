@@ -13,6 +13,7 @@
     <![endif]-->
 </head>
 <body>
+    {% include "partials/header.html" %}
     <div class="mui-row">
         <div class="mui-col-md-10 mui-col-md-offset-1 mui-col-sm-12 ">
             <div class="contentContainer">
@@ -21,7 +22,7 @@
                 <div class="mui-textfield">
                     <input type="text" name="subject_title" id="subject_title" maxlength="30" >
                     <label>Title</label>
-                    <p class='subject_title reg-error'>{% if subject_error %}{{subject_error}} {% endif %}</p>
+                    <p class='subject_title reg-error'>{% if errors %}{{errors.subject_title}} {% endif %}</p>
                 </div>
                 <h4>Add students to class</h4>
                 <div class="scrollableList">

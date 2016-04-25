@@ -149,3 +149,7 @@ body{
 	height: 16rem; 
 	overflow-y: scroll;
 }
+
+.mui-appbar {
+    background-color: #04A089 !important;
+}

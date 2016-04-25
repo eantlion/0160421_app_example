@@ -58,6 +58,10 @@ urlpatterns = [
         app_views.CreateClassroomView.as_view(), 
         name="create_classroom"),
 
+    url(r'^create-student/', 
+        app_views.CreateStudentView.as_view(), 
+        name="create_student"),
+
     url(r'^edit-classroom/(?P<class_id>[0-9]{1,64})/$', 
         app_views.EditClassroomView.as_view(), 
         name="edit_classroom"),

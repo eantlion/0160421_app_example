@@ -25,7 +25,7 @@ While inside the project folder
 
 	source ./myenv/bin/activate
 
-	pip install -r /path/to/requirements.txt
+	pip install -r ./requirements.txt
 
 Install postgres: 
 
@@ -50,12 +50,30 @@ username, password, and confirm password are up to you, the last 3 just enter 'n
 
 	psql
 
-	GRANT ALL PRIVILEGES ON DATABASE mydb TO myuser;
+	GRANT ALL PRIVILEGES ON DATABASE teacherdb TO myuser;
 Replace 'myuser' with the user name you selected above
+
+	\q
+
+	exit
 
 You must then add the username and password you created to ./teacherapp/settings.py:ln84-85
 
 
+FIRST RUN
+---------
+
+	source ./myenv/bin/activate
+
+	cd teacherapp/
+
+	python manage.py migrate
+
+	python manage.py collectstatic
+
+	python manage.py createsuperuser
+
+This will be the username you use to access admin dashboard at localhost:8000/admin/
 
 
 Adding Dependencies

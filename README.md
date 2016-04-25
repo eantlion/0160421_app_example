@@ -1,9 +1,61 @@
 teacherapp
 ==========
 
-1. Create a virtualenv if you haven't (`virtualenv env`)
-2. Activate it (`source env/bin/activate`)
-3. Have fun
+INSTALLATION
+------------
+
+Requirements: 
+Install pip: https://pip.pypa.io/en/stable/installing/
+Install virtualenv: https://virtualenv.pypa.io/en/latest/installation.html
+
+
+Update Packages
+
+	sudo apt-get update
+
+	sudo apt-get upgrade
+
+git clone the project
+
+while inside the project folder
+
+	sudo virtualenv ./myenv
+
+	source ./myenv/bin/activate
+
+	pip install -r /path/to/requirements.txt
+
+Install postgres: 
+
+If your virtualenv is still active
+	deactivate
+
+	sudo apt-get install libpq-dev python-dev
+
+	sudo apt-get install postgresql postgresql-contrib
+
+Configure PostgreSQL
+
+	source ./myenv/bin/activate
+
+	sudo su - postgres
+
+	createdb teacherdb
+
+	createuser -P --interactive
+you will receive 6 prompts: 
+username, password, and confirm password are up to you
+the last 3 just enter 'n'
+
+	psql
+
+	GRANT ALL PRIVILEGES ON DATABASE mydb TO myuser;
+Replace 'myuser' with the user name you selected above
+
+You must then add the username and password you created to ./teacherapp/settings.py:ln84-85
+
+
+
 
 Adding Dependencies
 -------------------

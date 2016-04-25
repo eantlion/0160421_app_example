@@ -5,6 +5,7 @@ INSTALLATION
 ------------
 
 Requirements: 
+
 Install pip: https://pip.pypa.io/en/stable/installing/
 Install virtualenv: https://virtualenv.pypa.io/en/latest/installation.html
 
@@ -17,7 +18,7 @@ Update Packages
 
 git clone the project
 
-while inside the project folder
+While inside the project folder
 
 	sudo virtualenv ./myenv
 
@@ -27,7 +28,6 @@ while inside the project folder
 
 Install postgres: 
 
-If your virtualenv is still active
 	deactivate
 
 	sudo apt-get install libpq-dev python-dev
@@ -43,9 +43,9 @@ Configure PostgreSQL
 	createdb teacherdb
 
 	createuser -P --interactive
-you will receive 6 prompts: 
-username, password, and confirm password are up to you
-the last 3 just enter 'n'
+You will receive 6 prompts: 
+
+username, password, and confirm password are up to you, the last 3 just enter 'n'
 
 	psql
 

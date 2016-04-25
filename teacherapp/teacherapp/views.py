@@ -152,7 +152,7 @@ class EditClassroomView(LoginRequiredMixin, TemplateView):
         context = self.get_context_data()
         context['class'] = class_obj
         context['current_students'] = class_obj.students.all()
-        context['new_students'] = Student.objects.all().order_by('last_name').exclude(id__in=class_obj.students.all().distinct())
+        context['new_students'] = page_utils.list_students_not_enrolled(class_obj)
         
         return render_to_response(self.template_name, context, RequestContext(request))
 
@@ -170,5 +170,5 @@ class EditClassroomView(LoginRequiredMixin, TemplateView):
         context = self.get_context_data()
         context['class'] = class_obj
         context['current_students'] = class_obj.students.all()
-        context['new_students'] = Student.objects.all().order_by('last_name').exclude(id__in=class_obj.students.all().distinct())
+        context['new_students'] = page_utils.list_students_not_enrolled(class_obj)
         return render_to_response(self.template_name, context, RequestContext(request))

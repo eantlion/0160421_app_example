@@ -81,3 +81,68 @@ Adding Dependencies
 
 1. Install the dependency using `pip`
 2. Save it by running `pip freeze > requirements.txt`
+
+
+
+
+USAGE
+=====
+
+Registering
+-----------
+Navigate to localhost:8000
+
+To create a teacher account, click the Register button and fill out the form, then submit
+
+To log in, either with the new teacher or with your admin account, fill out Username and Password and click Login
+
+You will be redirected to the dashboard
+
+
+Creating Students
+-----------------
+Navigate to Dashboard
+
+Click the 'Create a new student record' 
+
+Fill out form and submit
+
+You will be redirected to student details page for the newly created student
+
+Admin Accounts:
+
+You can also access localhost:8000/admin and navigate to students and add them through there.
+
+
+
+Creating Classrooms
+-------------------
+Navigate to Dashboard
+
+Click the 'Create a new classroom' 
+
+Fill out form and submit
+
+You will be redirected to classroom details page for the newly created classroom
+
+
+
+Adding/Removing Students from Classroom
+---------------------------------------
+Navigate to Dashboard
+
+Click 'View your classrooms'
+
+Click the classroom you want to add/remove students from the list
+
+Click 'You can add/remove students here'
+
+Two lists with checkboxed entries denote students currently enrolled and students not enrolled
+
+Check all you would like to remove from the first list
+
+Check all you would like to add from the second list
+
+Press submit
+
+Changes should happen immediately and be reflected on the page
